@@ -1,17 +1,10 @@
 const express = require("express");
 const pgp = require("pg-promise")();
 const redis = require("redis");
-// const db = pgp(
-//   "postgres://username:password@127.0.0.1:5432/expresshelloworld_dev"
-// );
 
 const db = pgp(process.env.DATABASE_URL);
 
 const router = express.Router();
-
-// const client = redis.createClient({
-//   url: "redis://default:YXVGZjXEiOgOPktbFpMLpeMTvVOWKRee@switchback.proxy.rlwy.net:41249",
-// });
 
 const client = redis.createClient({
   url: process.env.REDIS_URL,
